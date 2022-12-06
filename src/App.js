@@ -3,28 +3,28 @@ import './App.css';
 import Counter from './Counter';
 import { useState } from 'react';
 
-const {max} = 50 ;
-
-
 function App() {
   const [delta, setDelta] = useState (1) ;
+  const [maxCounter , setMaxCounter] = useState(100);
   
   function handleDelta(e){
     console.log(e);
     setDelta(Number(e.target.value))
-
     }
+
+  function handleMax(e){
+    console.log(e);
+    setMaxCounter(Number(e.target.value))
+  }
   
 
     return (
     <div className="App">
         Use state
         <p><input type="number" value = {delta} onChange = {handleDelta} /></p>
-        if( e.target.value > {max}){
-           setDelta(0)
-        }
-        <Counter delta = {delta} />
-        <Counter delta = {delta} />
+        <p><input type="number" value = {maxCounter} onChange = {handleMax} /></p>
+        <Counter delta = {delta} maxCounter = {maxCounter} />
+        <Counter delta = {delta} maxCounter = {maxCounter} />
     </div>
   );
 }
